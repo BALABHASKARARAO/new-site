@@ -1,0 +1,308 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-AWS/RDS/Rds-intro" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.1"><title data-rh=true>Amazon RDS Learning & Revision Guide | balabhaa</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://balabhaa.in/img/docusaurus-social-card.jpg /><meta data-rh=true name=twitter:image content=https://balabhaa.in/img/docusaurus-social-card.jpg /><meta data-rh=true property=og:url content=https://balabhaa.in/docs/AWS/RDS/Rds-intro /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Amazon RDS Learning & Revision Guide | balabhaa"/><meta data-rh=true name=description content=Overview /><meta data-rh=true property=og:description content=Overview /><link data-rh=true rel=canonical href=https://balabhaa.in/docs/AWS/RDS/Rds-intro /><link data-rh=true rel=alternate href=https://balabhaa.in/docs/AWS/RDS/Rds-intro hreflang=en /><link data-rh=true rel=alternate href=https://balabhaa.in/docs/AWS/RDS/Rds-intro hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://balabhaa.in/docs/AWS/RDS/Rds-intro","name":"Amazon RDS Learning & Revision Guide","position":1}]}</script><link rel=stylesheet href=/assets/css/styles.f66b4819.css /><script src=/assets/js/runtime~main.8aabb5b6.js defer></script><script src=/assets/js/main.e34912cc.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-cf8")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/img/logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/logo.svg alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/img/logo.svg alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">My Site</b></a><a class="navbar__item navbar__link" href=/docs/DevOps/CI-CD/Azure-Devops/azure>DevOps</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/docs/AWS/API-gateway/api-gateay>AWS</a><a class="navbar__item navbar__link" href=/docs/GoogleCloud/artifact-registery/registery>GoogleCloud</a><a class="navbar__item navbar__link" href=/docs/GENAI/notes/>GENAI</a><a class="navbar__item navbar__link" href="/docs/Linux/Linux Cheat sheet">Linux</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/AWS/API-gateway/api-gateay><span title=API-gateway class=categoryLinkLabel_W154>API-gateway</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/AWS/EBS/><span title="AWS EBS" class=linkLabel_WmDU>AWS EBS</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/AWS/EC2/ec2-intro><span title=EC2 class=categoryLinkLabel_W154>EC2</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/AWS/ECR/><span title="elastic continer service" class=linkLabel_WmDU>elastic continer service</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/AWS/ECS/ecs-service><span title=ECS class=categoryLinkLabel_W154>ECS</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/AWS/EFS/><span title="AWS EFS" class=linkLabel_WmDU>AWS EFS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/AWS/EKS/><span title="elasatic kubernets service" class=linkLabel_WmDU>elasatic kubernets service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/AWS/EVENT-bride/><span title="AWS event bridge" class=linkLabel_WmDU>AWS event bridge</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/AWS/IAM/><span title="AWS IAM" class=linkLabel_WmDU>AWS IAM</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/AWS/KMS/kms-intro><span title=KMS class=categoryLinkLabel_W154>KMS</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/docs/AWS/RDS/Rds-intro><span title=RDS class=categoryLinkLabel_W154>RDS</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/docs/AWS/RDS/Rds-intro><span title="Amazon RDS Learning & Revision Guide" class=linkLabel_WmDU>Amazon RDS Learning & Revision Guide</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/AWS/S3/s3-life-cycle-policy><span title=S3 class=categoryLinkLabel_W154>S3</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/AWS/cloudFront/><span title="AWS cloud front" class=linkLabel_WmDU>AWS cloud front</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/AWS/cloudtrail/clouedtari><span title=cloudtrail class=categoryLinkLabel_W154>cloudtrail</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/AWS/cloudwatch/clouswatch><span title=cloudwatch class=categoryLinkLabel_W154>cloudwatch</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/AWS/dynomodb/><span title=kfsdjh class=linkLabel_WmDU>kfsdjh</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/AWS/elastic-beanstack/AWS-DevOps-services/codeartifict/codeartifact><span title=elastic-beanstack class=categoryLinkLabel_W154>elastic-beanstack</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/AWS/intro><span title="AWS docs" class=linkLabel_WmDU>AWS docs</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/AWS/lambda/><span title="AWS lambda" class=linkLabel_WmDU>AWS lambda</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/AWS/orginaisations/org><span title=orginaisations class=categoryLinkLabel_W154>orginaisations</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/AWS/secret-manager/secret-manger><span title=secret-manager class=categoryLinkLabel_W154>secret-manager</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/AWS/vpc/><span title="AWS vpc" class=linkLabel_WmDU>AWS vpc</span></a></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>RDS</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Amazon RDS Learning & Revision Guide</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Amazon RDS Learning & Revision Guide</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=overview>Overview<a href=#overview class=hash-link aria-label="Direct link to Overview" title="Direct link to Overview" translate=no>​</a></h2>
+<p>Amazon RDS (Relational Database Service) is a managed database service that simplifies database administration tasks such as provisioning, backups, patching, monitoring, scaling, and high availability.</p>
+<p>When revising RDS, focus on database deployment, backup and recovery, security, performance optimization, and disaster recovery strategies.</p>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=1-rds-database-instances>1. RDS Database Instances<a href=#1-rds-database-instances class=hash-link aria-label="Direct link to 1. RDS Database Instances" title="Direct link to 1. RDS Database Instances" translate=no>​</a></h2>
+<p>RDS instances are managed database servers hosted by AWS.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics>Key Topics<a href=#key-topics class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">Create and delete database instances</li>
+<li class="">Instance sizing</li>
+<li class="">Database engine selection</li>
+<li class="">Single-AZ deployment</li>
+<li class="">Multi-AZ deployment</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=supported-database-engines>Supported Database Engines<a href=#supported-database-engines class=hash-link aria-label="Direct link to Supported Database Engines" title="Direct link to Supported Database Engines" translate=no>​</a></h3>
+<ul>
+<li class="">MySQL</li>
+<li class="">PostgreSQL</li>
+<li class="">MariaDB</li>
+<li class="">Oracle</li>
+<li class="">Microsoft SQL Server</li>
+<li class="">Amazon Aurora</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=2-amazon-aurora>2. Amazon Aurora<a href=#2-amazon-aurora class=hash-link aria-label="Direct link to 2. Amazon Aurora" title="Direct link to 2. Amazon Aurora" translate=no>​</a></h2>
+<p>Aurora is AWS's cloud-native relational database service.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-1>Key Topics<a href=#key-topics-1 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">Aurora MySQL</li>
+<li class="">Aurora PostgreSQL</li>
+<li class="">Aurora Clusters</li>
+<li class="">Aurora Reader Nodes</li>
+<li class="">Aurora Serverless</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=benefits>Benefits<a href=#benefits class=hash-link aria-label="Direct link to Benefits" title="Direct link to Benefits" translate=no>​</a></h3>
+<ul>
+<li class="">Higher performance</li>
+<li class="">Faster failover</li>
+<li class="">Built-in high availability</li>
+<li class="">Automated storage scaling</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=3-database-clusters>3. Database Clusters<a href=#3-database-clusters class=hash-link aria-label="Direct link to 3. Database Clusters" title="Direct link to 3. Database Clusters" translate=no>​</a></h2>
+<p>Clusters provide scalability and high availability.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-2>Key Topics<a href=#key-topics-2 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">Writer Instance</li>
+<li class="">Reader Instances</li>
+<li class="">Read Replicas</li>
+<li class="">Cluster Endpoints</li>
+<li class="">Reader Endpoints</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=common-use-cases>Common Use Cases<a href=#common-use-cases class=hash-link aria-label="Direct link to Common Use Cases" title="Direct link to Common Use Cases" translate=no>​</a></h3>
+<ul>
+<li class="">Production workloads</li>
+<li class="">Read-heavy applications</li>
+<li class="">High availability environments</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=4-storage-configuration>4. Storage Configuration<a href=#4-storage-configuration class=hash-link aria-label="Direct link to 4. Storage Configuration" title="Direct link to 4. Storage Configuration" translate=no>​</a></h2>
+<p>Storage is automatically managed by AWS.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-3>Key Topics<a href=#key-topics-3 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">General Purpose SSD (gp3)</li>
+<li class="">Provisioned IOPS (io1/io2)</li>
+<li class="">Storage Autoscaling</li>
+<li class="">Storage Encryption</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=design-considerations>Design Considerations<a href=#design-considerations class=hash-link aria-label="Direct link to Design Considerations" title="Direct link to Design Considerations" translate=no>​</a></h3>
+<ul>
+<li class="">Performance requirements</li>
+<li class="">Database size growth</li>
+<li class="">Cost optimization</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=5-automated-backups>5. Automated Backups<a href=#5-automated-backups class=hash-link aria-label="Direct link to 5. Automated Backups" title="Direct link to 5. Automated Backups" translate=no>​</a></h2>
+<p>RDS automatically creates backups within the configured retention period.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-4>Key Topics<a href=#key-topics-4 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">Backup retention period</li>
+<li class="">Point-in-Time Recovery (PITR)</li>
+<li class="">Backup windows</li>
+<li class="">Restore operations</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=common-use-cases-1>Common Use Cases<a href=#common-use-cases-1 class=hash-link aria-label="Direct link to Common Use Cases" title="Direct link to Common Use Cases" translate=no>​</a></h3>
+<ul>
+<li class="">Accidental data deletion</li>
+<li class="">Disaster recovery</li>
+<li class="">Compliance requirements</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=6-database-snapshots>6. Database Snapshots<a href=#6-database-snapshots class=hash-link aria-label="Direct link to 6. Database Snapshots" title="Direct link to 6. Database Snapshots" translate=no>​</a></h2>
+<p>Snapshots provide manual backups of databases.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-5>Key Topics<a href=#key-topics-5 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">Manual snapshots</li>
+<li class="">Automated snapshots</li>
+<li class="">Snapshot restoration</li>
+<li class="">Cross-region snapshot copy</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=benefits-1>Benefits<a href=#benefits-1 class=hash-link aria-label="Direct link to Benefits" title="Direct link to Benefits" translate=no>​</a></h3>
+<ul>
+<li class="">Long-term backup</li>
+<li class="">Environment cloning</li>
+<li class="">Migration support</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=7-high-availability-multi-az>7. High Availability (Multi-AZ)<a href=#7-high-availability-multi-az class=hash-link aria-label="Direct link to 7. High Availability (Multi-AZ)" title="Direct link to 7. High Availability (Multi-AZ)" translate=no>​</a></h2>
+<p>Multi-AZ deployments improve database availability.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-6>Key Topics<a href=#key-topics-6 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">Primary database</li>
+<li class="">Standby database</li>
+<li class="">Automatic failover</li>
+<li class="">Synchronous replication</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=benefits-2>Benefits<a href=#benefits-2 class=hash-link aria-label="Direct link to Benefits" title="Direct link to Benefits" translate=no>​</a></h3>
+<ul>
+<li class="">Reduced downtime</li>
+<li class="">Improved resilience</li>
+<li class="">Business continuity</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=8-read-replicas>8. Read Replicas<a href=#8-read-replicas class=hash-link aria-label="Direct link to 8. Read Replicas" title="Direct link to 8. Read Replicas" translate=no>​</a></h2>
+<p>Read replicas improve database scalability.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-7>Key Topics<a href=#key-topics-7 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">Read-only databases</li>
+<li class="">Asynchronous replication</li>
+<li class="">Read scaling</li>
+<li class="">Cross-region replicas</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=common-use-cases-2>Common Use Cases<a href=#common-use-cases-2 class=hash-link aria-label="Direct link to Common Use Cases" title="Direct link to Common Use Cases" translate=no>​</a></h3>
+<ul>
+<li class="">Reporting workloads</li>
+<li class="">Analytics</li>
+<li class="">High-read applications</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=9-security>9. Security<a href=#9-security class=hash-link aria-label="Direct link to 9. Security" title="Direct link to 9. Security" translate=no>​</a></h2>
+<p>Protect database access and data.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-8>Key Topics<a href=#key-topics-8 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">Security Groups</li>
+<li class="">IAM Authentication</li>
+<li class="">Database Authentication</li>
+<li class="">Encryption at Rest</li>
+<li class="">Encryption in Transit</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=common-controls>Common Controls<a href=#common-controls class=hash-link aria-label="Direct link to Common Controls" title="Direct link to Common Controls" translate=no>​</a></h3>
+<ul>
+<li class="">Restrict public access</li>
+<li class="">Private subnet deployment</li>
+<li class="">Least privilege access</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=10-kms-integration>10. KMS Integration<a href=#10-kms-integration class=hash-link aria-label="Direct link to 10. KMS Integration" title="Direct link to 10. KMS Integration" translate=no>​</a></h2>
+<p>RDS integrates with AWS KMS for encryption.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-9>Key Topics<a href=#key-topics-9 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">AWS Managed Keys</li>
+<li class="">Customer Managed Keys (CMK)</li>
+<li class="">Database Encryption</li>
+<li class="">Snapshot Encryption</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=architecture>Architecture<a href=#architecture class=hash-link aria-label="Direct link to Architecture" title="Direct link to Architecture" translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Application</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      v</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Amazon RDS</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      v</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">AWS KMS</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      v</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Encrypted Database Storage</span><br/></div></code></pre></div></div>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=11-networking>11. Networking<a href=#11-networking class=hash-link aria-label="Direct link to 11. Networking" title="Direct link to 11. Networking" translate=no>​</a></h2>
+<p>RDS should typically be deployed in private subnets.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-10>Key Topics<a href=#key-topics-10 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">DB Subnet Groups</li>
+<li class="">VPC Integration</li>
+<li class="">Security Groups</li>
+<li class="">Private Connectivity</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=best-practice>Best Practice<a href=#best-practice class=hash-link aria-label="Direct link to Best Practice" title="Direct link to Best Practice" translate=no>​</a></h3>
+<p>Avoid exposing databases directly to the internet.</p>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=12-monitoring-and-performance>12. Monitoring and Performance<a href=#12-monitoring-and-performance class=hash-link aria-label="Direct link to 12. Monitoring and Performance" title="Direct link to 12. Monitoring and Performance" translate=no>​</a></h2>
+<p>Monitor database health and performance.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-11>Key Topics<a href=#key-topics-11 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">CloudWatch Metrics</li>
+<li class="">Enhanced Monitoring</li>
+<li class="">Performance Insights</li>
+<li class="">Slow Query Analysis</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=important-metrics>Important Metrics<a href=#important-metrics class=hash-link aria-label="Direct link to Important Metrics" title="Direct link to Important Metrics" translate=no>​</a></h3>
+<ul>
+<li class="">CPU Utilization</li>
+<li class="">Memory Usage</li>
+<li class="">Storage Consumption</li>
+<li class="">Database Connections</li>
+<li class="">IOPS</li>
+<li class="">Replication Lag</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=13-maintenance-and-patching>13. Maintenance and Patching<a href=#13-maintenance-and-patching class=hash-link aria-label="Direct link to 13. Maintenance and Patching" title="Direct link to 13. Maintenance and Patching" translate=no>​</a></h2>
+<p>AWS helps manage database maintenance.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-12>Key Topics<a href=#key-topics-12 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">Maintenance Windows</li>
+<li class="">Minor Version Upgrades</li>
+<li class="">Major Version Upgrades</li>
+<li class="">Patch Management</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=design-considerations-1>Design Considerations<a href=#design-considerations-1 class=hash-link aria-label="Direct link to Design Considerations" title="Direct link to Design Considerations" translate=no>​</a></h3>
+<ul>
+<li class="">Schedule maintenance during low-traffic periods.</li>
+<li class="">Validate upgrades in non-production environments.</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=14-disaster-recovery>14. Disaster Recovery<a href=#14-disaster-recovery class=hash-link aria-label="Direct link to 14. Disaster Recovery" title="Direct link to 14. Disaster Recovery" translate=no>​</a></h2>
+<p>Plan for database failures and regional outages.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-13>Key Topics<a href=#key-topics-13 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">Automated Backups</li>
+<li class="">Snapshots</li>
+<li class="">Cross-Region Read Replicas</li>
+<li class="">Snapshot Copy Across Regions</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=recovery-objectives>Recovery Objectives<a href=#recovery-objectives class=hash-link aria-label="Direct link to Recovery Objectives" title="Direct link to Recovery Objectives" translate=no>​</a></h3>
+<ul>
+<li class="">RPO (Recovery Point Objective)</li>
+<li class="">RTO (Recovery Time Objective)</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=15-cost-optimization>15. Cost Optimization<a href=#15-cost-optimization class=hash-link aria-label="Direct link to 15. Cost Optimization" title="Direct link to 15. Cost Optimization" translate=no>​</a></h2>
+<p>Optimize RDS spending without impacting performance.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=key-topics-14>Key Topics<a href=#key-topics-14 class=hash-link aria-label="Direct link to Key Topics" title="Direct link to Key Topics" translate=no>​</a></h3>
+<ul>
+<li class="">Instance Rightsizing</li>
+<li class="">Storage Optimization</li>
+<li class="">Reserved Instances</li>
+<li class="">Aurora Serverless</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=common-review-areas>Common Review Areas<a href=#common-review-areas class=hash-link aria-label="Direct link to Common Review Areas" title="Direct link to Common Review Areas" translate=no>​</a></h3>
+<ul>
+<li class="">Unused databases</li>
+<li class="">Overprovisioned instances</li>
+<li class="">Backup storage consumption</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=16-common-production-architecture>16. Common Production Architecture<a href=#16-common-production-architecture class=hash-link aria-label="Direct link to 16. Common Production Architecture" title="Direct link to 16. Common Production Architecture" translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Application</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Application Load Balancer</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Application Servers</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Amazon RDS Writer</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Read Replicas</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Automated Backups</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Snapshots</span><br/></div></code></pre></div></div>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=cloud-architect-checklist>Cloud Architect Checklist<a href=#cloud-architect-checklist class=hash-link aria-label="Direct link to Cloud Architect Checklist" title="Direct link to Cloud Architect Checklist" translate=no>​</a></h2>
+<p>When designing an RDS solution, verify:</p>
+<ul>
+<li class="">Database Engine Selection</li>
+<li class="">High Availability (Multi-AZ)</li>
+<li class="">Backup Strategy</li>
+<li class="">Snapshot Strategy</li>
+<li class="">Disaster Recovery Plan</li>
+<li class="">Read Scaling Requirements</li>
+<li class="">Security Requirements</li>
+<li class="">KMS Encryption</li>
+<li class="">Monitoring Configuration</li>
+<li class="">Cost Optimization</li>
+<li class="">Performance Requirements</li>
+<li class="">Maintenance Strategy</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=revision-checklist>Revision Checklist<a href=#revision-checklist class=hash-link aria-label="Direct link to Revision Checklist" title="Direct link to Revision Checklist" translate=no>​</a></h2>
+<p>Before considering RDS revision complete, ensure you understand:</p>
+<ul>
+<li class="">RDS Instances</li>
+<li class="">Aurora</li>
+<li class="">Database Clusters</li>
+<li class="">Storage Types</li>
+<li class="">Automated Backups</li>
+<li class="">Snapshots</li>
+<li class="">Multi-AZ Deployments</li>
+<li class="">Read Replicas</li>
+<li class="">Security Groups</li>
+<li class="">IAM Authentication</li>
+<li class="">KMS Encryption</li>
+<li class="">DB Subnet Groups</li>
+<li class="">Monitoring</li>
+<li class="">Performance Insights</li>
+<li class="">Maintenance Windows</li>
+<li class="">Disaster Recovery</li>
+<li class="">Cost Optimization</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=most-important-interview-concepts>Most Important Interview Concepts<a href=#most-important-interview-concepts class=hash-link aria-label="Direct link to Most Important Interview Concepts" title="Direct link to Most Important Interview Concepts" translate=no>​</a></h3>
+<p>Understand the differences between:</p>
+<table><thead><tr><th>Feature<th>Multi-AZ<th>Read Replica<tbody><tr><td>Purpose<td>High Availability<td>Read Scaling<tr><td>Replication<td>Synchronous<td>Asynchronous<tr><td>Failover<td>Automatic<td>Manual Promotion<tr><td>Read Traffic<td>No<td>Yes</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=production-design-rule>Production Design Rule<a href=#production-design-rule class=hash-link aria-label="Direct link to Production Design Rule" title="Direct link to Production Design Rule" translate=no>​</a></h3>
+<p>For critical production databases:</p>
+<ul>
+<li class="">Deploy in private subnets.</li>
+<li class="">Enable Multi-AZ.</li>
+<li class="">Enable automated backups.</li>
+<li class="">Use KMS encryption.</li>
+<li class="">Configure monitoring and alerts.</li>
+<li class="">Implement snapshot retention policies.</li>
+<li class="">Use read replicas when read scaling is required.</li>
+</ul>
+<p>These topics cover approximately 90–95% of Amazon RDS concepts commonly used by Cloud Architects, DevOps Engineers, Platform Engineers, and SRE teams in production environments.</p>
+<p>For your AWS repository structure, I recommend:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">AWS</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">├── Compute</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">│   └── EC2</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">├── Storage</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">│   └── S3</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">├── Database</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">│   ├── RDS</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">│   ├── Aurora</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">│   └── DynamoDB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">├── Networking</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">├── Security</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">└── Monitoring</span><br/></div></code></pre></div></div>
+<p>Aurora can later become a separate document because in enterprise environments it is often treated as its own service and discussed separately from standard RDS.</div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href=https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/AWS/RDS/Rds-intro.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_Z9Sw aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/docs/AWS/KMS/kms-intro><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>AWS Key Management Service (KMS) Learning & Revision Guide</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/docs/AWS/S3/s3-life-cycle-policy><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Amazon S3 Learning & Revision Guide</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#overview class="table-of-contents__link toc-highlight">Overview</a><li><a href=#1-rds-database-instances class="table-of-contents__link toc-highlight">1. RDS Database Instances</a><ul><li><a href=#key-topics class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#supported-database-engines class="table-of-contents__link toc-highlight">Supported Database Engines</a></ul><li><a href=#2-amazon-aurora class="table-of-contents__link toc-highlight">2. Amazon Aurora</a><ul><li><a href=#key-topics-1 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#benefits class="table-of-contents__link toc-highlight">Benefits</a></ul><li><a href=#3-database-clusters class="table-of-contents__link toc-highlight">3. Database Clusters</a><ul><li><a href=#key-topics-2 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#common-use-cases class="table-of-contents__link toc-highlight">Common Use Cases</a></ul><li><a href=#4-storage-configuration class="table-of-contents__link toc-highlight">4. Storage Configuration</a><ul><li><a href=#key-topics-3 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#design-considerations class="table-of-contents__link toc-highlight">Design Considerations</a></ul><li><a href=#5-automated-backups class="table-of-contents__link toc-highlight">5. Automated Backups</a><ul><li><a href=#key-topics-4 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#common-use-cases-1 class="table-of-contents__link toc-highlight">Common Use Cases</a></ul><li><a href=#6-database-snapshots class="table-of-contents__link toc-highlight">6. Database Snapshots</a><ul><li><a href=#key-topics-5 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#benefits-1 class="table-of-contents__link toc-highlight">Benefits</a></ul><li><a href=#7-high-availability-multi-az class="table-of-contents__link toc-highlight">7. High Availability (Multi-AZ)</a><ul><li><a href=#key-topics-6 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#benefits-2 class="table-of-contents__link toc-highlight">Benefits</a></ul><li><a href=#8-read-replicas class="table-of-contents__link toc-highlight">8. Read Replicas</a><ul><li><a href=#key-topics-7 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#common-use-cases-2 class="table-of-contents__link toc-highlight">Common Use Cases</a></ul><li><a href=#9-security class="table-of-contents__link toc-highlight">9. Security</a><ul><li><a href=#key-topics-8 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#common-controls class="table-of-contents__link toc-highlight">Common Controls</a></ul><li><a href=#10-kms-integration class="table-of-contents__link toc-highlight">10. KMS Integration</a><ul><li><a href=#key-topics-9 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#architecture class="table-of-contents__link toc-highlight">Architecture</a></ul><li><a href=#11-networking class="table-of-contents__link toc-highlight">11. Networking</a><ul><li><a href=#key-topics-10 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#best-practice class="table-of-contents__link toc-highlight">Best Practice</a></ul><li><a href=#12-monitoring-and-performance class="table-of-contents__link toc-highlight">12. Monitoring and Performance</a><ul><li><a href=#key-topics-11 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#important-metrics class="table-of-contents__link toc-highlight">Important Metrics</a></ul><li><a href=#13-maintenance-and-patching class="table-of-contents__link toc-highlight">13. Maintenance and Patching</a><ul><li><a href=#key-topics-12 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#design-considerations-1 class="table-of-contents__link toc-highlight">Design Considerations</a></ul><li><a href=#14-disaster-recovery class="table-of-contents__link toc-highlight">14. Disaster Recovery</a><ul><li><a href=#key-topics-13 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#recovery-objectives class="table-of-contents__link toc-highlight">Recovery Objectives</a></ul><li><a href=#15-cost-optimization class="table-of-contents__link toc-highlight">15. Cost Optimization</a><ul><li><a href=#key-topics-14 class="table-of-contents__link toc-highlight">Key Topics</a><li><a href=#common-review-areas class="table-of-contents__link toc-highlight">Common Review Areas</a></ul><li><a href=#16-common-production-architecture class="table-of-contents__link toc-highlight">16. Common Production Architecture</a><li><a href=#cloud-architect-checklist class="table-of-contents__link toc-highlight">Cloud Architect Checklist</a><li><a href=#revision-checklist class="table-of-contents__link toc-highlight">Revision Checklist</a><ul><li><a href=#most-important-interview-concepts class="table-of-contents__link toc-highlight">Most Important Interview Concepts</a><li><a href=#production-design-rule class="table-of-contents__link toc-highlight">Production Design Rule</a></ul></ul></div></div></div></div></main></div></div></div></div></body>

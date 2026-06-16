@@ -1,0 +1,331 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-GoogleCloud/compute/recording-1" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.1"><title data-rh=true>Google Cloud Compute Engine and Basic Networking | balabhaa</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://balabhaa.in/img/docusaurus-social-card.jpg /><meta data-rh=true name=twitter:image content=https://balabhaa.in/img/docusaurus-social-card.jpg /><meta data-rh=true property=og:url content=https://balabhaa.in/docs/GoogleCloud/compute/recording-1 /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Google Cloud Compute Engine and Basic Networking | balabhaa"/><meta data-rh=true name=description content="Introduction to Google Cloud Compute Engine, VPC, Subnets, VM Creation, Nginx Setup, and Firewall Basics"/><meta data-rh=true property=og:description content="Introduction to Google Cloud Compute Engine, VPC, Subnets, VM Creation, Nginx Setup, and Firewall Basics"/><link data-rh=true rel=canonical href=https://balabhaa.in/docs/GoogleCloud/compute/recording-1 /><link data-rh=true rel=alternate href=https://balabhaa.in/docs/GoogleCloud/compute/recording-1 hreflang=en /><link data-rh=true rel=alternate href=https://balabhaa.in/docs/GoogleCloud/compute/recording-1 hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://balabhaa.in/docs/GoogleCloud/compute/recording-1","name":"Google Cloud Compute Engine and Basic Networking","position":1}]}</script><link rel=stylesheet href=/assets/css/styles.f66b4819.css /><script src=/assets/js/runtime~main.8aabb5b6.js defer></script><script src=/assets/js/main.e34912cc.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-cf8")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/img/logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/logo.svg alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/img/logo.svg alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">My Site</b></a><a class="navbar__item navbar__link" href=/docs/DevOps/CI-CD/Azure-Devops/azure>DevOps</a><a class="navbar__item navbar__link" href=/docs/AWS/API-gateway/api-gateay>AWS</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/docs/GoogleCloud/artifact-registery/registery>GoogleCloud</a><a class="navbar__item navbar__link" href=/docs/GENAI/notes/>GENAI</a><a class="navbar__item navbar__link" href="/docs/Linux/Linux Cheat sheet">Linux</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/GoogleCloud/artifact-registery/registery><span title=artifact-registery class=categoryLinkLabel_W154>artifact-registery</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/GoogleCloud/cloud-dns/clouddns><span title=cloud-dns class=categoryLinkLabel_W154>cloud-dns</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/GoogleCloud/cloud-spanner/><span title=cloud-spanner class=linkLabel_WmDU>cloud-spanner</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/GoogleCloud/cloudsql/><span title=cloudsql class=linkLabel_WmDU>cloudsql</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/docs/GoogleCloud/compute/Intro><span title=compute class=categoryLinkLabel_W154>compute</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/GoogleCloud/compute/Intro><span title="Compute Intro" class=linkLabel_WmDU>Compute Intro</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/GoogleCloud/compute/concepts><span title=concepts class=linkLabel_WmDU>concepts</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/docs/GoogleCloud/compute/recording-1><span title="Google Cloud Compute Engine and Basic Networking" class=linkLabel_WmDU>Google Cloud Compute Engine and Basic Networking</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/GoogleCloud/gke/><span title=gke class=linkLabel_WmDU>gke</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/docs/GoogleCloud/iam/><span title="gcp iam" class=linkLabel_WmDU>gcp iam</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/GoogleCloud/secret-manager/secret-manger><span title=secret-manager class=categoryLinkLabel_W154>secret-manager</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/docs/GoogleCloud/storage/stoage><span title=storage class=categoryLinkLabel_W154>storage</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/GoogleCloud/vpc/><span title="GCP vpc" class=categoryLinkLabel_W154>GCP vpc</span></a><button aria-label="Expand sidebar category 'GCP vpc'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>compute</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Google Cloud Compute Engine and Basic Networking</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Google Cloud Compute Engine and Basic Networking</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=introduction>Introduction<a href=#introduction class=hash-link aria-label="Direct link to Introduction" title="Direct link to Introduction" translate=no>​</a></h2>
+<p>In this tutorial, we will understand how Linux servers work in a traditional environment and how the same concepts are implemented in Google Cloud Platform (GCP).</p>
+<p>This document is designed for beginners who are starting their Google Cloud journey.</p>
+<hr/>
+<h1>What is Cloud Computing</h1>
+<p>Cloud computing is the process of using computing resources such as:</p>
+<ul>
+<li class="">Servers</li>
+<li class="">Storage</li>
+<li class="">Networking</li>
+<li class="">Databases</li>
+<li class="">Applications</li>
+</ul>
+<p>through the internet without managing physical hardware manually.</p>
+<p>Instead of purchasing and maintaining physical servers, cloud providers offer resources on-demand.</p>
+<p>Popular cloud providers:</p>
+<ul>
+<li class="">Google Cloud Platform (GCP)</li>
+<li class="">Amazon Web Services (AWS)</li>
+<li class="">Microsoft Azure</li>
+</ul>
+<hr/>
+<h1>Introduction to Google Cloud Platform</h1>
+<p>Google Cloud Platform (GCP) is Google's cloud computing platform.</p>
+<p>It provides multiple services such as:</p>
+<ul>
+<li class="">Virtual Machines</li>
+<li class="">Networking</li>
+<li class="">Storage</li>
+<li class="">Kubernetes</li>
+<li class="">Databases</li>
+<li class="">Monitoring</li>
+<li class="">Security Services</li>
+</ul>
+<p>Official Website:</p>
+<p><a href=https://cloud.google.com target=_blank rel="noopener noreferrer" class="">https://cloud.google.com</a></p>
+<hr/>
+<h1>Create Google Cloud Account</h1>
+<p>To use Google Cloud:</p>
+<ol>
+<li class="">Create a Google account</li>
+<li class="">Open Google Cloud Console</li>
+<li class="">Activate free trial</li>
+<li class="">Create your first project</li>
+</ol>
+<p>Google Cloud provides free credits for learning purposes.</p>
+<p>Official Link:</p>
+<p><a href=https://console.cloud.google.com target=_blank rel="noopener noreferrer" class="">https://console.cloud.google.com</a></p>
+<hr/>
+<h1>Google Cloud Resource Hierarchy</h1>
+<p>Google Cloud uses a hierarchical structure for organizing resources.</p>
+<p><img decoding=async loading=lazy alt="cloud hieract" src=/assets/images/cloud-hierarchy-de6feface0458516cbad8127b48507a0.svg width=586 height=778 class=img_ev3q /></p>
+<ul>
+<li class="">we can read more information from this link <a href=https://docs.cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy target=_blank rel="noopener noreferrer" class="">refer here</a></li>
+</ul>
+<hr/>
+<h1>Resource Hierarchy Structure</h1>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Organization</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> ├── Folder</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> │    ├── Sub Folder</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> │    │      └── Project</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> │    └── Project</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> └── Project</span><br/></div></code></pre></div></div>
+<hr/>
+<h1>Organization</h1>
+<p>Organization is the top-level container in Google Cloud.</p>
+<p>Example:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">company.com</span><br/></div></code></pre></div></div>
+<p>Usually connected to:</p>
+<ul>
+<li class="">Google Workspace</li>
+<li class="">Company Domain</li>
+</ul>
+<hr/>
+<h1>Folder</h1>
+<p>Folders help organize projects logically.</p>
+<p>Example:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Production</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Development</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Testing</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Finance</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Engineering</span><br/></div></code></pre></div></div>
+<p>Folders can also contain nested folders.</p>
+<hr/>
+<h1>Project</h1>
+<p>Projects are the main working units inside Google Cloud.</p>
+<p>Resources are created inside projects.</p>
+<p>Examples:</p>
+<ul>
+<li class="">VM Instances</li>
+<li class="">VPC Networks</li>
+<li class="">Databases</li>
+<li class="">Storage Buckets</li>
+</ul>
+<hr/>
+<h1>googe cloud compute</h1>
+<ul>
+<li class="">for any cloud, <strong>compute</strong> and <strong>VPC</strong> are primary. fi you understand that two services, you can say , I know that cloud.</li>
+</ul>
+<h1>Linux Server Basics</h1>
+<p>Before creating a VM in Google Cloud, we should understand the components of a Linux server.</p>
+<p>A typical Linux server contains:</p>
+<ul>
+<li class="">Operating System</li>
+<li class="">CPU</li>
+<li class="">RAM</li>
+<li class="">Disk/Storage</li>
+<li class="">Private IP Address</li>
+<li class="">Public IP Address</li>
+</ul>
+<hr/>
+<h1>Operating System</h1>
+<p>The Operating System manages the server.</p>
+<p>Examples:</p>
+<ul>
+<li class="">Ubuntu</li>
+<li class="">CentOS</li>
+<li class="">Debian</li>
+<li class="">Red Hat Enterprise Linux</li>
+</ul>
+<hr/>
+<h1>CPU and RAM</h1>
+<p>CPU performs computations.</p>
+<p>RAM stores temporary running data for applications.</p>
+<p>Example:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">2 vCPU</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">4 GB RAM</span><br/></div></code></pre></div></div>
+<hr/>
+<h1>Disk and Storage</h1>
+<p>Storage is used to store:</p>
+<ul>
+<li class="">Operating System files</li>
+<li class="">Application files</li>
+<li class="">Logs</li>
+<li class="">Databases</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li class="">HDD</li>
+<li class="">SSD</li>
+<li class="">Persistent Disk</li>
+</ul>
+<hr/>
+<h1>Private IP Address</h1>
+<p>Private IP is used for internal communication within the network.</p>
+<p>Example:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">10.0.0.5</span><br/></div></code></pre></div></div>
+<p>Private IPs are not accessible from the internet directly.</p>
+<hr/>
+<h1>Public IP Address</h1>
+<p>Public IP is used for internet access.</p>
+<p>Example:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">34.x.x.x</span><br/></div></code></pre></div></div>
+<p>Public IP allows users to access applications from outside.</p>
+<hr/>
+<h1>Mapping Linux Server to Google Cloud VM</h1>
+<p>In Google Cloud, virtual servers are called:</p>
+<h1>Compute Engine Virtual Machines</h1>
+<p>A Compute Engine VM is still a Linux server running in the cloud.</p>
+<p>Google Cloud manages:</p>
+<ul>
+<li class="">Infrastructure</li>
+<li class="">Physical Hardware</li>
+<li class="">Networking</li>
+<li class="">Hypervisor Layer</li>
+</ul>
+<p>Users manage:</p>
+<ul>
+<li class="">Operating System</li>
+<li class="">Applications</li>
+<li class="">Configurations</li>
+</ul>
+<hr/>
+<h1>Why VM Needs Networking</h1>
+<p>A VM requires networking for:</p>
+<ul>
+<li class="">Internal communication</li>
+<li class="">Internet access</li>
+<li class="">Application access</li>
+<li class="">Server-to-server communication</li>
+</ul>
+<p>Networking components include:</p>
+<ul>
+<li class="">VPC</li>
+<li class="">Subnets</li>
+<li class="">Routes</li>
+<li class="">Firewall Rules</li>
+</ul>
+<hr/>
+<h1>Public IP vs Private IP</h1>
+<table><thead><tr><th>Type<th>Purpose<tbody><tr><td>Private IP<td>Internal communication<tr><td>Public IP<td>Internet access</table>
+<hr/>
+<h1>What is VPC</h1>
+<p>VPC stands for:</p>
+<h1>Virtual Private Cloud</h1>
+<p>VPC is a logically isolated network inside Google Cloud.</p>
+<p>Resources communicate inside the VPC securely.</p>
+<hr/>
+<h1>AWS vs Google Cloud Networking Comparison</h1>
+<table><thead><tr><th>Feature<th>AWS<th>Google Cloud<tbody><tr><td>VPC Scope<td>Regional<td>Global<tr><td>Subnet Scope<td>Availability Zone Specific<td>Regional<tr><td>Zone Selection<td>Subnet tied to AZ<td>Zone selected during VM creation<tr><td>Same Subnet Across Zones<td>No<td>Yes</table>
+<hr/>
+<h1>AWS Networking Architecture</h1>
+<p>In AWS:</p>
+<ul>
+<li class="">VPC is regional</li>
+<li class="">Subnets are Availability Zone specific</li>
+</ul>
+<p>Example:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VPC</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> ├── Subnet-A (us-east-1a)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> └── Subnet-B (us-east-1b)</span><br/></div></code></pre></div></div>
+<hr/>
+<h1>Google Cloud Networking Architecture</h1>
+<p>In Google Cloud:</p>
+<ul>
+<li class="">VPC is global</li>
+<li class="">Subnets are regional</li>
+</ul>
+<p>Example:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Global VPC</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> └── Subnet (us-central1)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">       ├── VM in us-central1-a</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">       ├── VM in us-central1-b</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">       └── VM in us-central1-c</span><br/></div></code></pre></div></div>
+<hr/>
+<h1>Important Concept</h1>
+<p>In Google Cloud:</p>
+<ul>
+<li class="">Subnet belongs to a region</li>
+<li class="">VM belongs to a zone</li>
+<li class="">Same subnet can be used across multiple zones inside the same region</li>
+</ul>
+<hr/>
+<h1>VM Networking Flow</h1>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Internet</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   ↓</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Public IP</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   ↓</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Firewall Rule</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   ↓</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">VPC Network</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   ↓</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Subnet</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   ↓</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Virtual Machine</span><br/></div></code></pre></div></div>
+<hr/>
+<h1>Create VPC Network</h1>
+<p>Navigate to:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VPC Network → VPC Networks</span><br/></div></code></pre></div></div>
+<p>Create:</p>
+<ul>
+<li class="">Custom VPC</li>
+<li class="">Regional Subnet</li>
+</ul>
+<p>Example:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VPC Name: demo-vpc</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Subnet Name: demo-subnet</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Region: us-central1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">CIDR: 10.10.0.0/24</span><br/></div></code></pre></div></div>
+<hr/>
+<h1>Create Compute Engine VM</h1>
+<p>Navigate to:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Compute Engine → VM Instances</span><br/></div></code></pre></div></div>
+<p>Configure:</p>
+<ul>
+<li class="">VM Name</li>
+<li class="">Region</li>
+<li class="">Zone</li>
+<li class="">Machine Type</li>
+<li class="">OS Image</li>
+<li class="">VPC</li>
+<li class="">Subnet</li>
+<li class="">Public IP</li>
+</ul>
+<hr/>
+<h1>Example VM Configuration</h1>
+<table><thead><tr><th>Component<th>Value<tbody><tr><td>Name<td>nginx-server<tr><td>Region<td>us-central1<tr><td>Zone<td>us-central1-a<tr><td>OS<td>Ubuntu<tr><td>Machine Type<td>e2-medium<tr><td>VPC<td>demo-vpc<tr><td>Subnet<td>demo-subnet</table>
+<hr/>
+<h1>Connect to VM</h1>
+<p>Use SSH from Google Cloud Console.</p>
+<p>Example:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">sudo apt update</span><br/></div></code></pre></div></div>
+<hr/>
+<h1>Install Nginx</h1>
+<p>Install Nginx web server.</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">sudo apt install nginx -y</span><br/></div></code></pre></div></div>
+<p>Start Nginx:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">sudo systemctl start nginx</span><br/></div></code></pre></div></div>
+<p>Enable Nginx:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">sudo systemctl enable nginx</span><br/></div></code></pre></div></div>
+<hr/>
+<h1>Verify Nginx Status</h1>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">sudo systemctl status nginx</span><br/></div></code></pre></div></div>
+<hr/>
+<h1>Access Application</h1>
+<p>Open browser:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">http://PUBLIC_IP</span><br/></div></code></pre></div></div>
+<p>At this stage, application may still not work because firewall access is blocked.</p>
+<hr/>
+<h1>Why Firewall Rule is Required</h1>
+<p>Google Cloud blocks incoming traffic by default.</p>
+<p>To allow HTTP traffic:</p>
+<ul>
+<li class="">Port 80 must be opened</li>
+</ul>
+<hr/>
+<h1>Create Firewall Rule</h1>
+<p>Navigate to:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VPC Network → Firewall</span><br/></div></code></pre></div></div>
+<p>Create Rule:</p>
+<table><thead><tr><th>Field<th>Value<tbody><tr><td>Name<td>allow-http<tr><td>Direction<td>Ingress<tr><td>Targets<td>All instances<tr><td>Source IP<td>0.0.0.0/0<tr><td>Protocols<td>TCP:80</table>
+<hr/>
+<h1>Firewall Networking Flow</h1>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Internet</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   ↓</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Firewall Rule (Allow TCP 80)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   ↓</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">VM Instance</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   ↓</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Nginx Application</span><br/></div></code></pre></div></div>
+<hr/>
+<h1>Verify Application Access</h1>
+<p>Open browser again:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">http://PUBLIC_IP</span><br/></div></code></pre></div></div>
+<p>Nginx default page should load successfully.</p>
+<hr/>
+<h1>Important Notes</h1>
+<p>This tutorial covered only basic firewall concepts.</p>
+<p>Advanced topics will be covered later:</p>
+<ul>
+<li class="">Firewall Policies</li>
+<li class="">Allow Rules</li>
+<li class="">Deny Rules</li>
+<li class="">Target Tags</li>
+<li class="">Service Accounts</li>
+<li class="">Priority Rules</li>
+<li class="">Internal Traffic Rules</li>
+<li class="">Load Balancer Security</li>
+<li class="">Advanced Networking</li>
+</ul>
+<hr/>
+<h1>Architecture Placeholders</h1>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=resource-hierarchy-diagram>Resource Hierarchy Diagram<a href=#resource-hierarchy-diagram class=hash-link aria-label="Direct link to Resource Hierarchy Diagram" title="Direct link to Resource Hierarchy Diagram" translate=no>​</a></h2>
+<blockquote>
+<p>Add image here</p>
+</blockquote>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=aws-vs-gcp-networking-diagram>AWS vs GCP Networking Diagram<a href=#aws-vs-gcp-networking-diagram class=hash-link aria-label="Direct link to AWS vs GCP Networking Diagram" title="Direct link to AWS vs GCP Networking Diagram" translate=no>​</a></h2>
+<blockquote>
+<p>Add image here</p>
+</blockquote>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=vpc-and-subnet-architecture-diagram>VPC and Subnet Architecture Diagram<a href=#vpc-and-subnet-architecture-diagram class=hash-link aria-label="Direct link to VPC and Subnet Architecture Diagram" title="Direct link to VPC and Subnet Architecture Diagram" translate=no>​</a></h2>
+<blockquote>
+<p>Add image here</p>
+</blockquote>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=vm-networking-flow-diagram>VM Networking Flow Diagram<a href=#vm-networking-flow-diagram class=hash-link aria-label="Direct link to VM Networking Flow Diagram" title="Direct link to VM Networking Flow Diagram" translate=no>​</a></h2>
+<blockquote>
+<p>Add image here</p>
+</blockquote>
+<hr/></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href=https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/GoogleCloud/compute/recording-1.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_Z9Sw aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/docs/GoogleCloud/compute/concepts><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>concepts</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/docs/GoogleCloud/gke/><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>gke</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#introduction class="table-of-contents__link toc-highlight">Introduction</a><li><a href=#resource-hierarchy-diagram class="table-of-contents__link toc-highlight">Resource Hierarchy Diagram</a><li><a href=#aws-vs-gcp-networking-diagram class="table-of-contents__link toc-highlight">AWS vs GCP Networking Diagram</a><li><a href=#vpc-and-subnet-architecture-diagram class="table-of-contents__link toc-highlight">VPC and Subnet Architecture Diagram</a><li><a href=#vm-networking-flow-diagram class="table-of-contents__link toc-highlight">VM Networking Flow Diagram</a></ul></div></div></div></div></main></div></div></div></div></body>
